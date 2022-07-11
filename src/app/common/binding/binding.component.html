@@ -1,0 +1,28 @@
+<section class="flex items-center justify-center flex-col">
+  <h1 class="text-4xl p-2" [innerHTML]="title + ' Example'"></h1>
+  <p>{{ subtitle }}</p>
+
+  <div class="flex flex-row items-center justify-center gap-2">
+    <label for="search">Filter </label>
+    <input [(ngModel)]="searchFruit" (ngModelChange)="dataChanged($event)" type="text"
+      class="rounded-md border-blue-500 border-2 no-underline px-2" name="search" />
+    <input [(ngModel)]="newFruit" type="text" class="rounded-md border-blue-500 border-2 no-underline px-2"
+      name="newFruit" placeholder="Add new fruit..." />
+    <button class="ml-4 bg-green-800 rounded-md p-1 text-white" (click)="addFruit()">
+      Add fruit
+    </button>
+    <button class="ml-4 bg-blue-800 rounded-md p-1 text-white" (click)="populateFruits()">
+      Reset
+    </button>
+  </div>
+
+  <div class="mt-4" *ngIf="fruits.length">
+    <h2 class="text-2xl underline">List of Fruits</h2>
+    <ol>
+      <li *ngFor="let fruit of fruits">{{ fruit }}</li>
+    </ol>
+  </div>
+</section>
+
+<!-- <pre>{{ searchFruit | json }}
+</pre> -->

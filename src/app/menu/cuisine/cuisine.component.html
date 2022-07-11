@@ -1,0 +1,27 @@
+<div>
+    <hr />
+    <div class="row p-8">
+        <div class="col-md-2">
+            <h2 class="text-3xl text-blue-500">Cuisine</h2>
+        </div>
+        <div class="col-md-10">
+            <ul class="nav nav-pills nav-fill">
+                <li *ngFor="let cuisine of cuisines">
+                    <a (mouseover)="getMenuClass(cuisine); setActiveMenu(cuisine)" href="javascript:void(0);"
+                        class="nav-link hover:bg-blue-600 hover:text-white rounded-lg p-1 mx-4"
+                        [ngClass]="{ 'active': getMenuClass(cuisine) }">{{ cuisine.name }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div class=" p-8">
+        <h3 class="text-2xl text-orange-400">{{ selectedCuisine.name }}</h3>
+        <p>{{ selectedCuisine.description }}</p>
+    </div>
+    <hr />
+</div>
+
+<!-- <pre>
+    {{ menuActiveList | json }}
+</pre> -->
